@@ -50,8 +50,8 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yaricap) {
+  return 2 * pi * yaricap;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,8 +64,8 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yaricap,pi) {
+  return pi * Math.pow(yaricap,2);
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -98,28 +98,59 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
+enkucuk = sayilar[0];
+enbuyuk = 0;
+for (let i = 0; i < sayilar.length; i++)
+{
+  if (enkucuk > sayilar[i]) {
+    enkucuk = sayilar[i];
+  }
 
-/* kodlar buraya */
+  if (enbuyuk < sayilar[i])
+  {
+    enbuyuk = sayilar[i];
+  }
+}
 
 // 3b çözümü:
 
-/* kodlar buraya */
+ucetambolunenler = [];
+sayilar.forEach((sayi) => {
+  if (sayi % 3 === 0) {
+    ucetambolunenler.push(sayi);
+  }
+});
 
 // 3c çözümü:
 
-/* kodlar buraya */
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam,yeniSayi) =>  toplam + yeniSayi,0);
 
 // 3d çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar = sayilar.filter((sayi) => sayi < 500);
 
 // 3e çözümü
 
-/* kodlar buraya */
+siralisayilar = besyuzdenkucuksayilar.sort((a,b) => a-b);
 
 // 3f çözümü
+tekraredensayilar = [];
 
-/* kodlar buraya */
+const repatingNumbersOb = {};
+for (const sayi of sayilar) {
+   if (repatingNumbersOb[sayi] === undefined) {
+    repatingNumbersOb[sayi] = 1;
+   } else {
+    repatingNumbersOb[sayi] += 1;
+   }
+}
+
+for (let [sayi,tekrarSayisi] of Object.entries(repatingNumbersOb))
+{
+  tekraredensayilar.push(`${sayi} sayısı ${tekrarSayisi} kere tekrar edilmiştir`);
+}
+
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
